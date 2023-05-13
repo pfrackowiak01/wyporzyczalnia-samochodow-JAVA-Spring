@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+	<div th:replace="partials/head.html :: head"></div>
+<body>
+	<div th:replace="partials/navi.html :: header"></div>
+	<div class="flex flex-col items-center p-2">
+	<b><h2 class="p-4 text-3xl">Dodaj nową rezerwacje</h2></b>
+		<br />
+		<form action="#" th:action="@{/save_klienci}" th:object="${klienci}" method="post">
+			<table>
+				<tr>
+					<td>Imię:</td>
+					<td>
+						<input type="text" th:field="*{imie}" />
+						<span class="error" th:if="${#fields.hasErrors('imie')}" th:errors="*{imie}">Imie</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Nazwisko:</td>
+					<td>
+						<input type="text" th:field="*{nazwisko}" />
+						<span class="error" th:if="${#fields.hasErrors('nazwisko')}" th:errors="*{nazwisko}">Nazwisko</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td>
+						<input type="text" th:field="*{email}" />
+						<span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Numer telefonu:</td>
+					<td>
+						<input type="number" th:field="*{telefon}" />
+						<span class="error" th:if="${#fields.hasErrors('telefon')}" th:errors="*{telefon}">Telefon</span>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<button type="submit" class="text-white p-2 rounded-md bg-red-600 hover:bg-red-500 duration-150">Zapisz</button>
+			<br>
+		</form>
+	</div>
+	<br>
+	<br>
+	<div th:replace="partials/footer.html :: footer"></div>
+</body>
+</html>

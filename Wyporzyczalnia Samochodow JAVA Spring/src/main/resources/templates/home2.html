@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html lang="pl"> 
+  <div th:replace="partials/head.html :: head"></div>
+  <body class="bg-gray-100"> 
+    <div th:replace="partials/navi.html :: header"></div>
+    <div id="zawartosc"> 
+      <h1>Witaj na BudgetExpress24h</h1> 
+      
+      <h3>U nas wypożyczysz auta z najtańszą ceną!
+      <br>- ekspresowy odbiór
+      <br>- bezpłatne odwołanie rezerwacji do 24 godzin przed odbiorem
+      <br>
+      <br></h3>
+      <br><a href="./list_klienci">Lista klientów</a>
+      <br>
+      <br><a href="./list_rezerwacje">Lista rezerwacji</a>
+      <br>
+      <br><u>Dane do konta admina:</u>
+      <br>Nazwa: admin
+      <br>Email: admin@gmail.pl
+      <br>Hasło: admin
+    </div> 
+	<div th:replace="partials/footer.html :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+	<div th:replace="partials/head.html :: head"></div>
+<body>
+	<div th:replace="partials/navi.html :: header"></div>
+	<div class="flex flex-col items-center p-2">
+	<b><h2 class="p-4 text-3xl">Lista rezerwacji</h2></b>
+		<!-- <div th:replace="parts/nav.html :: nav"></div> -->
+		<br /> <a th:href="@{/new_rezerwacje}" class="text-white p-2 rounded-md bg-red-600 hover:bg-red-500 duration-150">Dodaj nową rezerwacje</a> <br /> <br />
+		<table>
+			<thead>
+				<tr>
+					<th>Id rezerwacji</th>
+					<th>Id klienta</th>
+					<th>Id samochodu</th>
+					<th>Data początkowa</th>
+					<th>Data końcowa</th>
+					<th>Ochrona</th>
+					<th>Pakiet</th>
+					<th>Edytuj</th>
+					<th>Usuń</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="rezerwacje : ${lk}">
+					<td th:text="${rezerwacje.id_rezerwacji}">Id rezerwacji</td>
+					<td th:text="${rezerwacje.id_klienta}">Id klienta</td>
+					<td th:text="${rezerwacje.id_samochodu}">Id samochodu</td>
+					<td th:text="${rezerwacje.data_pocz}">Data początkowa</td>
+					<td th:text="${rezerwacje.data_kon}">Data końcowa</td>
+					<td th:text="${rezerwacje.ochrona}">Ochrona</td>
+					<td th:text="${rezerwacje.pakiet}">Pakiet</td>
+					<td><a th:href="@{'/edit_rezerwacje/' + ${rezerwacje.id_klienta}}" class="text-red-600 p-2 rounded-md hover:text-gray-800 hover:bg-red-500">Edytuj</a></td>
+					<td><a th:href="@{'/delete_rezerwacje/' + ${rezerwacje.id_klienta}}" class="text-red-600 p-2 rounded-md hover:text-gray-800 hover:bg-red-500">Usuń</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<br>
+	<div th:replace="partials/footer.html :: footer"></div>
+</body>
+</html>

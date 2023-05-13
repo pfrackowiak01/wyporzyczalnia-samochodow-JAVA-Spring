@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+	<div th:replace="partials/head.html :: head"></div>
+<body>
+	<div th:replace="partials/navi.html :: header"></div>
+	<div class="flex flex-col items-center p-2">
+	<b><h2 class="p-4 text-3xl">Edytuj rezerwacje</h2></b>
+		<!--  <div th:replace="parts/nav.html :: nav"></div>  -->
+		<br />
+		<form action="#" th:action="@{/save_rezerwacje}" th:object="${rezerwacje}"
+			method="post">
+			<table>
+				<tr>
+					<td>Id rezerwacje:</td>
+					<td>
+						<input type="text" th:field="*{id_rezerwacji}" readonly="readonly" />
+						<span class="error" th:if="${#fields.hasErrors('id_rezerwacji')}" th:errors="*{id_rezerwacji}">Nazwa</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Id klienta:</td>
+					<td>
+						<input type="text" th:field="*{id_klienta}" />
+						<span class="error" th:if="${#fields.hasErrors('id_klienta')}" th:errors="*{id_klienta}">Nazwa</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Id samochodu:</td>
+					<td>
+						<input type="text" th:field="*{id_samochodu}" />
+						<span class="error" th:if="${#fields.hasErrors('id_samochodu')}" th:errors="*{id_samochodu}">Nazwa</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Data początkowa:</td>
+					<td>
+						<input type="text" th:field="*{data_pocz}" />
+						<span class="error" th:if="${#fields.hasErrors('data_pocz')}" th:errors="*{data_pocz}">Nazwa</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Data końcowa:</td>
+					<td>
+						<input type="number" th:field="*{data_kon}" />
+						<span class="error" th:if="${#fields.hasErrors('data_kon')}" th:errors="*{data_kon}">Nazwa</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Ochrona:</td>
+					<td>
+						<input type="number" th:field="*{ochrona}" />
+						<span class="error" th:if="${#fields.hasErrors('ochrona')}" th:errors="*{ochrona}">Nazwa</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Pakiet:</td>
+					<td>
+						<input type="number" th:field="*{pakiet}" />
+						<span class="error" th:if="${#fields.hasErrors('pakiet')}" th:errors="*{pakiet}">Nazwa</span>
+					</td>
+				</tr>
+			</table>
+			<button type="submit" class="text-white p-2 rounded-md bg-red-600 hover:bg-red-500 duration-150">Zapisz</button>
+		</form>
+	</div>
+	<br>
+	<br>
+	<div th:replace="partials/footer.html :: footer"></div>
+</body>
+</html>
